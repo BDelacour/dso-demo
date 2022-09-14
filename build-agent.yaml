@@ -32,7 +32,7 @@ spec:
         - 99d
       volumeMounts:
         - name: jenkins-docker-cfg
-      mountPath: /kaniko/.docker
+          mountPath: /kaniko/.docker
     - name: trufflehog
       image: rmkanda/trufflehog
       command:
@@ -56,8 +56,8 @@ spec:
     - name: jenkins-docker-cfg
       projected:
       sources:
-      - secret:
-          name: regcred
-          items:
-            - key: .dockerconfigjson
-              path: config.json
+        - secret:
+            name: regcred
+            items:
+              - key: .dockerconfigjson
+                path: config.json
