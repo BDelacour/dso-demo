@@ -3,7 +3,7 @@ WORKDIR /app
 COPY .  .
 RUN mvn package -DskipTests
 
-FROM 17.0.4.1_1-jre-alpine
+FROM eclipse-temurin:17.0.4.1_1-jre-alpine
 WORKDIR /run
 COPY --from=builder /app/target/demo-0.0.1-SNAPSHOT.jar demo.jar
 
